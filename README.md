@@ -1,12 +1,24 @@
-# React + Vite
+## 🌙 Dark Mode Toggle with React & Tailwind CSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In this project, I implemented a smooth and responsive **Dark Mode feature** using **React** and **Tailwind CSS**. The goal was to offer users a modern, visually pleasing interface that adapts to their theme preference in real time.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🛠️ How It Works
 
-## Expanding the ESLint configuration
+Tailwind CSS handles dark mode styling using the `dark:` variant. I configured Tailwind to use the **class-based strategy**, which toggles the `dark` class on the `<html>` element.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React State**: I used `useState` and `useContext` to manage the theme globally.
+- **Theme Toggle**: A simple toggle switch updates the theme state and applies the `dark` class to the root.
+- **Tailwind Integration**: Components use conditional classes like `bg-white dark:bg-gray-900` to apply styles based on the current theme.
+
+---
+
+### 🧠 Behind the Scenes
+
+```js
+useEffect(() => {
+  document.querySelector('html').classList.remove('light', 'dark')
+  document.querySelector('html').classList.add(theme)
+}, [theme])
+
